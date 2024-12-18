@@ -25,7 +25,7 @@ import java.util.List;
  * @since 2024-10-29
  */
 @Service
-@Transactional
+//@Transactional
 public class BchannelhtServiceImpl extends ServiceImpl<BchannelhtMapper, Bchannelht> implements BchannelhtService {
 
     @Autowired

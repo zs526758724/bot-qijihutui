@@ -1,7 +1,6 @@
-package com.bot.bota.utils;
+package com.bot.common.utils;
 
 import cn.hutool.core.util.StrUtil;
-import com.bot.bota.bot.FzzfExecBot;
 import com.bot.common.pojo.MyButton;
 import lombok.extern.slf4j.Slf4j;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;

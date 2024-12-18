@@ -20,7 +20,7 @@ import java.util.List;
  * @since 2024-10-28
  */
 @Service
-@Transactional
+//@Transactional
 public class BpermissionsServiceImpl extends ServiceImpl<BpermissionsMapper, Bpermissions> implements BpermissionsService {
 
     @Override

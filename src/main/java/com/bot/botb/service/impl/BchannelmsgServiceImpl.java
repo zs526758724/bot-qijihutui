@@ -20,7 +20,7 @@ import java.util.HashSet;
  * @since 2024-10-29
  */
 @Service
-@Transactional
+//@Transactional
 public class BchannelmsgServiceImpl extends ServiceImpl<BchannelmsgMapper, Bchannelmsg> implements BchannelmsgService {
 
     @Override

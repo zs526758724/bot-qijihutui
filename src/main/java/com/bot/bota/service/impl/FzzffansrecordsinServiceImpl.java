@@ -22,7 +22,7 @@ import java.util.List;
  * @since 2024-10-29
  */
 @Service
-@Transactional
+//@Transactional
 public class FzzffansrecordsinServiceImpl extends ServiceImpl<FzzffansrecordsinMapper, Fzzffansrecordsin> implements FzzffansrecordsinService {
 
     @Override

@@ -25,7 +25,7 @@ import java.util.List;
  * @since 2024-10-29
  */
 @Service
-@Transactional
+//@Transactional
 public class FzzfchannelhtServiceImpl extends ServiceImpl<FzzfchannelhtMapper, Fzzfchannelht> implements FzzfchannelhtService {
 
     @Autowired

@@ -7,7 +7,7 @@ import com.bot.bota.entity.*;
 import com.bot.bota.pojo.Permissions;
 import com.bot.bota.service.*;
 import com.bot.bota.pojo.ChannelHtInfo;
-import com.bot.bota.utils.Msg;
+import com.bot.common.utils.Msg;
 import com.bot.common.pojo.MyButton;
 import com.bot.common.utils.*;
 import lombok.extern.slf4j.Slf4j;

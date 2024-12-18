@@ -21,7 +21,7 @@ import java.util.List;
  * @since 2024-10-28
  */
 @Service
-@Transactional
+//@Transactional
 public class BvisitorsServiceImpl extends ServiceImpl<BvisitorsMapper, Bvisitors> implements BvisitorsService {
 
     @Override

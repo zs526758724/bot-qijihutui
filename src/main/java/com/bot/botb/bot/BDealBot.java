@@ -5,7 +5,7 @@ import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bot.bota.pojo.ChannelHtInfo;
 import com.bot.bota.pojo.Permissions;
-import com.bot.bota.utils.Msg;
+import com.bot.common.utils.Msg;
 import com.bot.botb.entity.*;
 import com.bot.botb.enums.BStr;
 import com.bot.botb.service.*;

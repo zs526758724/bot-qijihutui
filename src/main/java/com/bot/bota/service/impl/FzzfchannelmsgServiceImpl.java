@@ -20,7 +20,7 @@ import java.util.HashSet;
  * @since 2024-10-29
  */
 @Service
-@Transactional
+//@Transactional
 public class FzzfchannelmsgServiceImpl extends ServiceImpl<FzzfchannelmsgMapper, Fzzfchannelmsg> implements FzzfchannelmsgService {
 
     @Override

@@ -4,6 +4,10 @@ import com.bot.bota.bot.FzzfDealBot;
 import com.bot.bota.bot.FzzfExecBot;
 import com.bot.bota.entity.Fzzfmydata;
 import com.bot.bota.service.FzzfmydataService;
+import com.bot.botb.bot.BDealBot;
+import com.bot.botb.bot.BExecBot;
+import com.bot.botb.entity.Bmydata;
+import com.bot.botb.service.BmydataService;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -22,10 +26,9 @@ import java.util.concurrent.Executor;
 
 
 @EnableScheduling
-@EnableTransactionManagement
 @SpringBootApplication
 @Slf4j
-@MapperScan("com.bot.botservice.fzzf.mapper")
+@MapperScan({"com.bot.botb.mapper","com.bot.bota.mapper"})
 public class App {
 
     @Resource
@@ -36,6 +39,12 @@ public class App {
     private Executor taskExecutor;
     @Resource
     private Executor taskExecutorsigle;
+
+    @Autowired
+    private BmydataService bmydataService;
+    @Autowired
+    private BDealBot bDealBot;
+
     @Autowired
     private FzzfmydataService fzzfmydataService;
     @Autowired
@@ -47,16 +56,25 @@ public class App {
     }
 
     @PostConstruct
-    public void init() {
+    public void init() throws TelegramApiException {
+        TelegramBotsApi telegramBotsApi = new TelegramBotsApi(defaultBotSession.getClass());
         try {
-            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(defaultBotSession.getClass());
             FzzfExecBot execBot = new FzzfExecBot(botOptions, "qijihutuibot", "7343674936:AAFsHIoVNu7FMmxUgeJpBneqLzqHjEW6XdE", taskExecutor, taskExecutorsigle, fzzfDealBot);
             telegramBotsApi.registerBot(execBot);
         } catch (TelegramApiException e) {
             log.error("注册bot失败", e);
         }
-        Fzzfmydata cdstatus = fzzfmydataService.getOneByMyKey("cdstatus");
-        cdstatus.setMyvalus("0");
-        fzzfmydataService.updateById(cdstatus);
+        Fzzfmydata acdstatus = fzzfmydataService.getOneByMyKey("cdstatus");
+        acdstatus.setMyvalus("0");
+        fzzfmydataService.updateById(acdstatus);
+        try {
+            BExecBot execBot = new BExecBot(botOptions, "hemahutuibot", "7595446020:AAHTq1ryoj7mIhRNULJZUwLlQJyMz1GUUJw", taskExecutor, taskExecutorsigle, bDealBot);
+            telegramBotsApi.registerBot(execBot);
+        } catch (TelegramApiException e) {
+            log.error("注册bot失败", e);
+        }
+        Bmydata bcdstatus = bmydataService.getOneByMyKey("cdstatus");
+        bcdstatus.setMyvalus("0");
+        bmydataService.updateById(bcdstatus);
     }
 }

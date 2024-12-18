@@ -1,7 +1,7 @@
 package com.bot.bota.bot;
 
 import cn.hutool.json.JSONUtil;
-import com.bot.bota.utils.Msg;
+import com.bot.common.utils.Msg;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
