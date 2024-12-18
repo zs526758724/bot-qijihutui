@@ -1,0 +1,29 @@
+server:
+  port: 28042
+telegram:
+  proxyHost: "127.0.0.1"
+  proxyPort: 7890
+  isOpenProxy: 1 # 1 代表开启代理 0 代表关闭代理
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://154.64.255.64/telegram-qjht?characterEncoding=utf8&useUnicode=true
+    username: qijihutui
+    password: ZeEuV1IN3pgmrC7B
+  quartz:
+    properties:
+      org.quartz.threadPool.threadCount: 40 #线程池大小
+      org.quartz.threadPool.threadPriority: 5 #线程优先级
+      org.quartz.jobStore.misfireThreshold: 120000 #任务超时时间 单位毫秒
+mybatis-plus:
+  type-aliases-package: com.telegram.botservice.fzzf.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: false
+  mapper-locations: classpath:/mappers/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+logging:
+  level:
+    root: info
