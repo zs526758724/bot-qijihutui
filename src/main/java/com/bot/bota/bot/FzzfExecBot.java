@@ -98,7 +98,7 @@ public class FzzfExecBot extends TelegramLongPollingBot {
                 || update.getChatMember().getChat().isSuperGroupChat()
                 || update.getChatMember().getChat().isUserChat())) {
             if (update.getChatMember().getChat().isChannelChat()) {
-                taskExecutorsigle.execute(() -> fzzfDealBot.handleJoinChannel(update, this));//频道
+                taskExecutor.execute(() -> fzzfDealBot.handleJoinChannel(update, this));//频道
                 return;
             }
             if (update.getChatMember().getChat().isGroupChat()) {

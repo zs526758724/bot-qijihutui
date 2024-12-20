@@ -3,7 +3,7 @@ package com.bot.botb.enums;
 public class BStr {
     public static final String str01 = "➕添加机器人进频道";
     public static final String str02 = "\uD83D\uDC40浏览车队详情";
-    public static final String str03 = "\uD83D\uDE84申请加入车队";
+    public static final String str03 = "\uD83C\uDF44加入频道互推\uD83C\uDF44";
     public static final String str04 = "\uD83D\uDC65互推交流群";
     public static final String str05 = "\uD83D\uDCAC联系客服";
     public static final String str06 = "管理员操作菜单";

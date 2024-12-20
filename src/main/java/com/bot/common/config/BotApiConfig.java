@@ -8,10 +8,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
+import org.telegram.telegrambots.updatesreceivers.ExponentialBackOff;
 
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 @Configurable
 @Component
@@ -26,6 +28,12 @@ public class BotApiConfig {
             botOptions.setProxyHost(telegramData.getProxyHost());
             botOptions.setProxyPort(telegramData.getProxyPort());
             botOptions.setProxyType(DefaultBotOptions.ProxyType.SOCKS5);
+            ExponentialBackOff backOff = new ExponentialBackOff.Builder()
+                    .setInitialIntervalMillis(500)
+                    .setMaxIntervalMillis(1000)
+                    .setMaxElapsedTimeMillis(5000)
+                    .build();
+            botOptions.setBackOff(backOff);
         }
         //"message",
         //        "edited_message",
@@ -83,9 +91,15 @@ public class BotApiConfig {
         if (telegramData.getIsOpenProxy() == 1) {
             return new OkHttpClient.Builder()
                     .proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(telegramData.getProxyHost(), telegramData.getProxyPort())))
+                    .connectTimeout(60, TimeUnit.SECONDS)
+                    .readTimeout(60, TimeUnit.SECONDS)
+                    .writeTimeout(60, TimeUnit.SECONDS)
                     .build();
         } else {
             return new OkHttpClient.Builder()
+                    .connectTimeout(60, TimeUnit.SECONDS)
+                    .readTimeout(60, TimeUnit.SECONDS)
+                    .writeTimeout(60, TimeUnit.SECONDS)
                     .build();
         }
     }

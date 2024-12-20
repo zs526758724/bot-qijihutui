@@ -1320,7 +1320,7 @@ public class BDealBot {
                                 channelHtInfo.setInviteLink(bchannelht.getInvitelink());
                                 channelHtInfo.setUrl(bchannelht.getUrl());
                                 StringBuilder message = new StringBuilder();
-                                String zuname = "\uD83D\uDE80来自奇迹互推【";
+                                String zuname = "\uD83D\uDE80来自"+cdname+"【";
                                 for (Bcd bcd : bcdList) {
                                     if (bchannelht.getCdid().equals(bcd.getId())) {
                                         zuname += bcd.getTitle();
@@ -1329,7 +1329,7 @@ public class BDealBot {
                                     }
                                 }
                                 zuname += "】组\uD83D\uDE80";
-                                String botName = "qijihutui";
+                                String botName = "xxxxxxxx";
                                 try {
                                     botName = bExecBot.getMe().getUserName();
                                 } catch (TelegramApiException e) {

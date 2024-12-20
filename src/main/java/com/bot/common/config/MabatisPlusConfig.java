@@ -7,7 +7,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@MapperScan("com.bot.botservice.fzzf.mapper")
+@MapperScan({"com.bot.bota.mapper","com.bot.botb.mapper"})
 @Configuration
 public class MabatisPlusConfig {
     @Bean

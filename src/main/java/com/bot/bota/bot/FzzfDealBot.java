@@ -1320,7 +1320,7 @@ public class FzzfDealBot {
                                 channelHtInfo.setInviteLink(fzzfchannelht.getInvitelink());
                                 channelHtInfo.setUrl(fzzfchannelht.getUrl());
                                 StringBuilder message = new StringBuilder();
-                                String zuname = "\uD83D\uDE80来自奇迹互推【";
+                                String zuname = "\uD83D\uDE80来自"+cdname+"【";
                                 for (Fzzfcd fzzfcd : fzzfcdList) {
                                     if (fzzfchannelht.getCdid().equals(fzzfcd.getId())) {
                                         zuname += fzzfcd.getTitle();
@@ -1329,7 +1329,7 @@ public class FzzfDealBot {
                                     }
                                 }
                                 zuname += "】组\uD83D\uDE80";
-                                String botName = "qijihutui";
+                                String botName = "xxxxxxx";
                                 try {
                                     botName = fzzfExecBot.getMe().getUserName();
                                 } catch (TelegramApiException e) {
