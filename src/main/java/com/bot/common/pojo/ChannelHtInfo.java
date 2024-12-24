@@ -1,4 +1,4 @@
-package com.bot.bota.pojo;
+package com.bot.common.pojo;
 
 import lombok.Data;
 
